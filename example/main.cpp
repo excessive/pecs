@@ -8,13 +8,8 @@ using namespace pecs;
 enum {
 	COMPONENT_ANY       = 0,
 	COMPONENT_INFO      = 1 << 0,
-	COMPONENT_RENDER    = 1 << 1,
-	COMPONENT_PHYSICS   = 1 << 2,
-	COMPONENT_TRANSFORM = 1 << 3,
-	COMPONENT_ANIMATION = 1 << 4,
-	COMPONENT_LIGHT     = 1 << 5,
-	COMPONENT_CAMERA    = 1 << 6,
-	COMPONENT_TRIGGER   = 1 << 7
+	COMPONENT_TRANSFORM = 1 << 1,
+	COMPONENT_CAMERA    = 1 << 2,
 };
 
 struct component_info_t {
