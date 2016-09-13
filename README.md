@@ -4,9 +4,14 @@ PECS is a practical, powerful, and provocative ECS designed to be easy to use,
 easy to understand, and **FAST**! Build PECS into your game and let it do all
 the heavy lifting for you!
 
+## Building
+To use PECS in your own project, just update your include paths and `#include <pecs.hpp>`.
+
+To compile the example, make sure [GENie](https://github.com/bkaradzic/GENie) is in your path and then simply run `make`.
+
 ## Example
 
-```
+```cpp
 #include "pecs.hpp"
 
 using namespace pecs;
