@@ -1,5 +1,4 @@
 local base_dir = path.getabsolute("..")
-local src_dir  = path.join(base_dir, "src")
 
 solution "pecs" do
 	configurations { "Debug", "Release" }
@@ -31,6 +30,7 @@ project "pecs" do
 		"-Wall",
 	}
 
+	local src_dir  = path.join(base_dir, "example")
 	configuration {}
 	files {
 		path.join(src_dir, "**.cpp"),
@@ -38,6 +38,7 @@ project "pecs" do
 	}
 
 	includedirs {
+		path.join(base_dir, "include"),
 		src_dir,
 	}
 end

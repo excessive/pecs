@@ -81,30 +81,13 @@ void resize(std::vector<T> &components, uint32_t id) {
 
 struct test_world_t : world_t {
 	std::vector<component_info_t>      infos;
-	std::vector<component_render_t>    renders;
-	std::vector<component_physics_t>   physics;
 	std::vector<component_transform_t> transforms;
-	std::vector<component_animation_t> animations;
-	std::vector<component_light_t>     lights;
 	std::vector<component_camera_t>    cameras;
-	std::vector<component_trigger_t>   triggers;
 
 	void set_component(entity_t *entity, component_info_t component) {
 		entity->mask |= COMPONENT_INFO;
 		resize(this->infos, entity->id);
 		this->infos[entity->id] = component;
-	}
-
-	void set_component(entity_t *entity, component_render_t component) {
-		entity->mask |= COMPONENT_RENDER;
-		resize(this->renders, entity->id);
-		this->renders[entity->id] = component;
-	}
-
-	void set_component(entity_t *entity, component_physics_t component) {
-		entity->mask |= COMPONENT_PHYSICS;
-		resize(this->physics, entity->id);
-		this->physics[entity->id] = component;
 	}
 
 	void set_component(entity_t *entity, component_transform_t component) {
@@ -113,29 +96,12 @@ struct test_world_t : world_t {
 		this->transforms[entity->id] = component;
 	}
 
-	void set_component(entity_t *entity, component_animation_t component) {
-		entity->mask |= COMPONENT_ANIMATION;
-		resize(this->animations, entity->id);
-		this->animations[entity->id] = component;
-	}
-
-	void set_component(entity_t *entity, component_light_t component) {
-		entity->mask |= COMPONENT_LIGHT;
-		resize(this->lights, entity->id);
-		this->lights[entity->id] = component;
-	}
-
 	void set_component(entity_t *entity, component_camera_t component) {
 		entity->mask |= COMPONENT_CAMERA;
 		resize(this->cameras, entity->id);
 		this->cameras[entity->id] = component;
 	}
 
-	void set_component(entity_t *entity, component_trigger_t component) {
-		entity->mask |= COMPONENT_TRIGGER;
-		resize(this->triggers, entity->id);
-		this->triggers[entity->id] = component;
-	}
 };
 
 struct sys_test : system_t {
@@ -242,6 +208,7 @@ struct camera_system_t : system_t {
 			transform.position[2]
 		);
 		#else
+		// Silence warnings.
 		(void)info;
 		(void)transform;
 		#endif
@@ -271,7 +238,7 @@ int main(int argc, char* argv[]) {
 	for (size_t i = 0; i < num_entities; i++) {
 		entity_t entity = world.get_entity();
 		world.set_component(&entity,
-			component_info_t { "Big Booby Bitches" }
+			component_info_t { "Hello" }
 		);
 		world.set_component(&entity,
 			component_transform_t {
