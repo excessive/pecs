@@ -13,9 +13,12 @@
 
 namespace pecs {
 
+#ifdef PECS_SKIP_COUNTER
 uint64_t SKIPS = 0;
-
 #define PECS_SKIP_INVALID_ENTITY if (!entity.alive || (entity.mask & this->mask) != this->mask) { SKIPS++; continue; }
+#else
+#define PECS_SKIP_INVALID_ENTITY if (!entity.alive || (entity.mask & this->mask) != this->mask) { continue; }
+#endif
 
 /**
  * Entity
@@ -49,11 +52,11 @@ struct system_t {
 		world(nullptr)
 	{}
 
-	virtual void on_add(entity_t *entity) {}
-	virtual void on_add(world_t *world) {}
-	virtual void on_remove(entity_t *entity) {}
-	virtual void on_remove(world_t *world) {}
-	virtual void update(double dt) {}
+	virtual void on_add(entity_t *entity) { (void)entity; }
+	virtual void on_add(world_t *world)   { (void)world; }
+	virtual void on_remove(entity_t *entity) { (void)entity; }
+	virtual void on_remove(world_t *world)   { (void)world; }
+	virtual void update(double dt) { (void)dt; }
 };
 
 /**

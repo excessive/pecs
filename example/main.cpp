@@ -1,5 +1,7 @@
-// #define PECS_DEBUG
 #include <chrono>
+
+// #define PECS_DEBUG
+#define PECS_SKIP_COUNTER
 #include "pecs.hpp"
 
 using namespace pecs;
