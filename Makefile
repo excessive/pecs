@@ -7,4 +7,7 @@ project:
 run: all
 	@exec ./bin/pecs
 
-.PHONY: all project run
+clean:
+	+make -C build clean
+
+.PHONY: all clean project run
