@@ -15,7 +15,7 @@ namespace pecs {
 
 #ifdef PECS_SKIP_COUNTER
 uint64_t SKIPS = 0;
-#define PECS_SKIP_INVALID_ENTITY if (!entity.alive || (entity.mask & this->mask) != this->mask) { SKIPS++; continue; }
+#define PECS_SKIP_INVALID_ENTITY if (!entity.alive || (entity.mask & this->mask) != this->mask) { pecs::SKIPS++; continue; }
 #else
 #define PECS_SKIP_INVALID_ENTITY if (!entity.alive || (entity.mask & this->mask) != this->mask) { continue; }
 #endif
