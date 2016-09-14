@@ -53,9 +53,9 @@ struct system_t {
 	{}
 
 	virtual void on_add(entity_t *entity) { (void)entity; }
-	virtual void on_add(world_t *world)   { (void)world; }
+	virtual void on_add(world_t *_world)   { (void)_world; }
 	virtual void on_remove(entity_t *entity) { (void)entity; }
-	virtual void on_remove(world_t *world)   { (void)world; }
+	virtual void on_remove(world_t *_world)   { (void)_world; }
 	virtual void update(double dt) { (void)dt; }
 };
 
