@@ -9,7 +9,8 @@
 #include <algorithm>
 #include <unordered_set>
 #include <vector>
-#include <stdio.h>
+#include <cstdio>
+#include <cstdint>
 
 namespace pecs {
 
