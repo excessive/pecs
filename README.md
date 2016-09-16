@@ -9,6 +9,14 @@ To use PECS in your own project, just update your include paths and `#include <p
 
 To compile the example, make sure [GENie](https://github.com/bkaradzic/GENie) is in your path and then simply run `make`.
 
+## Requirements
+Any more-or-less C++11-compatible compiler. May support older compilers in the future, but we like Lambdas and range-based for.
+
+Known good:
+- VS 2013
+- GCC 6.1 (older should be fine)
+- Clang 3.8 (older should be fine)
+
 ## Example
 
 ```cpp
