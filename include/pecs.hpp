@@ -1,6 +1,6 @@
 /**
  * Practical Entity Component System
- * @version 0.0.5
+ * @version 0.0.6
  * @author Colby Klein <shakesoda@gmail.com>
  * @author Landon Manning <lmanning17@gmail.com>
  * @license MIT/X11
@@ -20,6 +20,8 @@ uint64_t SKIPS = 0;
 #else
 #define PECS_SKIP_INVALID_ENTITY if (!entity.alive || (entity.mask & this->mask) != this->mask) { continue; }
 #endif
+
+#define PECS_FILTER_ENTITY(MASK) if (!entity.alive || (entity.mask & MASK) != MASK) { continue; }
 
 /**
  * Entity
